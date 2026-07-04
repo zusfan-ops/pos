@@ -1,8 +1,8 @@
 <!-- Desktop Sidebar -->
 <div class="hidden lg:flex lg:flex-col lg:w-64 lg:bg-white lg:border-r lg:border-gray-200 lg:fixed lg:inset-y-0">
     <div class="flex items-center h-16 px-6 border-b border-gray-200">
-        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 24 24"><path d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14A9.98 9.98 0 013 13.5C3 8.26 7.26 4 12.5 4S22 8.26 22 13.5 17.74 23 12.5 23c-2.03 0-3.92-.6-5.5-1.64l-1.45 1.45A10.96 10.96 0 0012.5 25C18.85 25 24 19.85 24 13.5S18.85 2 13 2zm-1 5v6l5.25 3.15.75-1.23-4.5-2.67V8H12z"/></svg>
-        <span class="ml-2 text-xl font-bold text-gray-800">{{ config('app.name', 'POS UMKM') }}</span>
+        <x-application-logo class="w-8 h-8 rounded-lg shrink-0" />
+        <span class="ml-2 text-xl font-bold text-gray-800 truncate">{{ config('app.name', 'POS UMKM') }}</span>
     </div>
     <nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
         <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-xl {{ request()->routeIs('dashboard') ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-50' }}">
@@ -45,7 +45,7 @@
 </div>
 
 <!-- Mobile Bottom Navigation -->
-<nav class="mobile-bottom-nav bg-white border-t border-gray-200 lg:hidden">
+<nav class="mobile-bottom-nav bg-white border-t border-gray-200 sm:hidden">
     <div class="flex items-center justify-around h-16 safe-area-bottom">
         <a href="{{ route('dashboard') }}" class="flex flex-col items-center justify-center px-3 py-1 {{ request()->routeIs('dashboard') ? 'text-indigo-600' : 'text-gray-500' }}">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>

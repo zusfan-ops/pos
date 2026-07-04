@@ -3,7 +3,7 @@
          x-data="posApp()"
          x-init="init()">
         {{-- Mobile cart toggle --}}
-        <div class="fixed bottom-4 right-4 z-50 lg:hidden">
+        <div class="fixed bottom-24 right-4 z-40 sm:bottom-6 sm:right-6 sm:z-50 lg:hidden">
             <button @click="cartOpen = !cartOpen"
                     class="bg-indigo-600 text-white rounded-full p-4 shadow-xl touch-btn flex items-center gap-2 text-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

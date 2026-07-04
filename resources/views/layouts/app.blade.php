@@ -6,6 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#4f46e5">
     <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <title>{{ config('app.name', 'POS UMKM') }} - @yield('title', 'Dashboard')</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
@@ -22,6 +25,12 @@
         @media (min-width: 641px) and (max-width: 1023px) {
             .sidebar-icon-only { width: 72px; }
         }
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .main-content { padding-left: 72px; }
+        }
+        @media (min-width: 1024px) {
+            .main-content { padding-left: 16rem; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-gray-50">
@@ -29,6 +38,8 @@
         @include('layouts.navigation')
 
         <div class="flex-1 flex flex-col main-content">
+            <x-pwa-install-banner />
+
             @isset($header)
                 <header class="bg-white shadow-sm border-b border-gray-200 lg:sticky lg:top-0 z-40">
                     <div class="px-4 sm:px-6 py-4">
