@@ -41,8 +41,8 @@
                          class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden touch-card active:scale-95 transition-transform hover:shadow-md cursor-pointer select-none">
                         {{-- Product Image --}}
                         <div class="aspect-square bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center relative overflow-hidden">
-                            <template x-if="product.image">
-                                <img :src="product.image" :alt="product.name"
+                            <template x-if="product.image_url">
+                                <img :src="product.image_url" :alt="product.name"
                                      class="w-full h-full object-cover"
                                      loading="lazy">
                             </template>
@@ -117,10 +117,10 @@
                         <div class="flex items-center gap-3 bg-gray-50 rounded-xl p-3 border border-gray-100">
                             {{-- Item thumb --}}
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                                <template x-if="item.image">
-                                    <img :src="item.image" :alt="item.name" class="w-full h-full object-cover">
+                                <template x-if="item.image_url">
+                                    <img :src="item.image_url" :alt="item.name" class="w-full h-full object-cover">
                                 </template>
-                                <template x-if="!item.image">
+                                <template x-if="!item.image_url">
                                     <span class="text-lg font-bold text-indigo-400" x-text="item.name.charAt(0).toUpperCase()"></span>
                                 </template>
                             </div>

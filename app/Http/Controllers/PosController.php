@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PosController extends Controller
@@ -17,9 +18,16 @@ class PosController extends Controller
     {
         $businessId = auth()->user()->business_id;
         $categories = Category::where('business_id', $businessId)->get();
-        $products = Product::where('business_id', $businessId)->where('stock', '>', 0)->get();
+        $products = Product::where('business_id', $businessId)->where('stock', '>', 0)->get()->map(function ($p) {
+            $p->image_url = $p->image ? Storage::url($p->image) : null;
+            return $p;
+        });
         $customers = Customer::where('business_id', $businessId)->get();
         $cart = session()->get('cart', []);
+
+        if (request()->wantsJson()) {
+            return response()->json(['cart' => array_values($cart)]);
+        }
 
         return view('pos.index', compact('categories', 'products', 'customers', 'cart'));
     }
@@ -44,6 +52,7 @@ class PosController extends Controller
                 'quantity' => $quantity,
                 'stock' => $product->stock,
                 'image' => $product->image,
+                'image_url' => $product->image ? Storage::url($product->image) : null,
             ];
         }
 
@@ -52,6 +61,13 @@ class PosController extends Controller
         }
 
         session()->put('cart', $cart);
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'cart' => array_values(session()->get('cart', [])),
+            ]);
+        }
 
         return redirect()->route('pos.index')->with('success', 'Produk ditambahkan ke keranjang');
     }
@@ -65,6 +81,13 @@ class PosController extends Controller
             session()->put('cart', $cart);
         }
 
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'cart' => array_values(session()->get('cart', [])),
+            ]);
+        }
+
         return redirect()->route('pos.index');
     }
 
@@ -74,6 +97,13 @@ class PosController extends Controller
         unset($cart[$productId]);
         session()->put('cart', $cart);
 
+        if (request()->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'cart' => array_values(session()->get('cart', [])),
+            ]);
+        }
+
         return redirect()->route('pos.index');
     }
 
@@ -82,6 +112,9 @@ class PosController extends Controller
         $cart = session()->get('cart', []);
 
         if (empty($cart)) {
+            if ($request->wantsJson()) {
+                return response()->json(['success' => false, 'message' => 'Keranjang belanja kosong']);
+            }
             return redirect()->route('pos.index')->with('error', 'Keranjang belanja kosong');
         }
 
@@ -96,6 +129,9 @@ class PosController extends Controller
         $profit = collect($cart)->sum(fn($item) => ($item['price'] - $item['cost']) * $item['quantity']);
 
         if ($request->payment_amount < $total) {
+            if ($request->wantsJson()) {
+                return response()->json(['success' => false, 'message' => 'Pembayaran kurang dari total belanja']);
+            }
             return redirect()->route('pos.index')->with('error', 'Pembayaran kurang dari total belanja');
         }
 
@@ -130,9 +166,19 @@ class PosController extends Controller
             DB::commit();
             session()->forget('cart');
 
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'redirect' => route('pos.receipt', $transaction->id),
+                ]);
+            }
+
             return redirect()->route('pos.receipt', $transaction->id);
         } catch (\Exception $e) {
             DB::rollBack();
+            if ($request->wantsJson()) {
+                return response()->json(['success' => false, 'message' => 'Transaksi gagal: ' . $e->getMessage()]);
+            }
             return redirect()->route('pos.index')->with('error', 'Transaksi gagal: ' . $e->getMessage());
         }
     }
