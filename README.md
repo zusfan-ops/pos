@@ -75,8 +75,8 @@ POS UMKM hadir sebagai solusi kasir digital yang **gratis selamanya** — tanpa 
 
 ```bash
 # Clone repositori
-git clone https://github.com/zusfan-ops/pos-umkm.git
-cd pos-umkm
+git clone https://github.com/zusfan-ops/pos.git
+cd pos
 
 # Install dependencies
 composer install
@@ -156,6 +156,7 @@ Didistribusikan di bawah [MIT License](https://opensource.org/licenses/MIT). Beb
 | Website | [hallosemarang.com](https://hallosemarang.com) |
 | Portofolio | [zusfan.hallosemarang.com](https://zusfan.hallosemarang.com) |
 | Email | [zusfan.mashuri@gmail.com](mailto:zusfan.mashuri@gmail.com) |
+| WhatsApp | [Tanya soal source code ini](https://wa.me/628998813000?text=Halo%2C%20saya%20ingin%20bertanya%20informasi%20terkait%20source%20code%20POS%20UMKM%20ini.) |
 
 ---
 
