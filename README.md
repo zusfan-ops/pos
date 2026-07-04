@@ -1,156 +1,162 @@
-# POS UMKM - Aplikasi Kasir Gratis untuk Usaha Kecil
+# POS UMKM
 
-**POS UMKM** adalah aplikasi **Point of Sale** berbasis web (PWA) yang dibangun khusus untuk membantu pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia dalam mengelola transaksi penjualan, stok produk, dan keuangan usaha secara digital.
+**Aplikasi kasir digital gratis untuk Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia.**
 
-> **100% GRATIS selamanya** - Tidak ada biaya langganan, tidak ada iklan, tidak ada batasan fitur. Selamanya gratis.
+POS UMKM adalah sistem *Point of Sale* berbasis web (PWA) yang membantu pelaku usaha mengelola transaksi penjualan, stok produk, dan keuangan secara digital — sederhana, cepat, dan bisa diakses dari HP, tablet, maupun komputer.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white)](https://www.php.net)
 
 ---
 
-## 🎯 Tujuan Dibangun
+## Daftar Isi
 
-Ribuan UMKM di Indonesia masih mencatat transaksi secara manual di buku atau menggunakan notes hp. Hal ini menyulitkan dalam:
+- [Latar Belakang](#latar-belakang)
+- [Fitur](#fitur)
+- [Tech Stack](#tech-stack)
+- [Instalasi](#instalasi)
+- [Akun Demo](#akun-demo)
+- [PWA](#pwa-progressive-web-app)
+- [Kontribusi](#kontribusi)
+- [Lisensi](#lisensi)
+- [Kontak](#kontak)
 
-- Melacak pendapatan harian/bulanan
-- Mengetahui produk mana yang paling laris
+---
+
+## Latar Belakang
+
+Banyak UMKM di Indonesia masih mencatat transaksi secara manual di buku atau catatan HP, sehingga sulit untuk:
+
+- Melacak pendapatan harian maupun bulanan
+- Mengetahui produk yang paling laris
 - Menghitung keuntungan (profit) secara akurat
 - Mengelola stok barang
 - Mencatat hutang/piutang pelanggan
 
-**POS UMKM** hadir untuk menjawab masalah tersebut dengan menyediakan sistem kasir digital yang **sederhana, touchscreen-friendly, dan bisa diakses dari HP, tablet, maupun komputer**.
+POS UMKM hadir sebagai solusi kasir digital yang **gratis selamanya** — tanpa biaya langganan, tanpa iklan, dan tanpa batasan fitur.
 
----
-
-## ✨ Fitur Unggulan
+## Fitur
 
 | Fitur | Deskripsi |
-|-------|-----------|
-| **🖥️ Multi-Device** | Tampilan optimal di HP, tablet, dan desktop dengan navigasi berbeda tiap device |
-| **📱 PWA Ready** | Bisa diinstall ke home screen HP seperti aplikasi native |
-| **👥 Multi-User** | Fitur Owner & Staff, cocok untuk usaha yang punya karyawan |
-| **🧾 POS Kasir** | Antarmuka touchscreen dengan grid produk, keranjang, dan pembayaran |
-| **📦 Manajemen Produk** | Tambah, edit, hapus produk dengan kategori, stok, harga jual/beli |
-| **👤 Manajemen Pelanggan** | Database pelanggan untuk tracking pembelian |
-| **📊 Laporan Penjualan** | Lihat omset, profit, produk terlaris, dan grafik harian |
-| **🔄 Multi-Pembayaran** | Tunai, Transfer, QRIS |
-| **🔐 Multi-Tenant** | Setiap usaha punya data sendiri-sendiri |
-| **📄 Nota Digital** | Cetak struk transaksi setelah pembayaran |
+|---|---|
+| **Multi-Device** | Tampilan responsif dengan navigasi yang disesuaikan untuk HP, tablet, dan desktop |
+| **PWA Ready** | Dapat diinstal ke home screen HP layaknya aplikasi native |
+| **Multi-User** | Peran Owner & Staff, cocok untuk usaha dengan karyawan |
+| **Kasir (POS)** | Antarmuka touchscreen dengan grid produk, keranjang, dan pembayaran |
+| **Manajemen Produk** | Tambah, edit, hapus produk lengkap dengan kategori, stok, dan harga jual/beli |
+| **Manajemen Pelanggan** | Database pelanggan untuk pelacakan riwayat pembelian |
+| **Laporan Penjualan** | Omset, profit, produk terlaris, dan grafik penjualan harian |
+| **Multi-Pembayaran** | Mendukung Tunai, Transfer, dan QRIS |
+| **Multi-Tenant** | Setiap usaha memiliki data yang terisolasi |
+| **Nota Digital** | Cetak struk transaksi secara otomatis setelah pembayaran |
 
----
-
-## 🚀 Demo
-
-| Akun | Email | Password | Role |
-|------|-------|----------|------|
-| Owner | `owner@demo.com` | `password` | Pemilik usaha (full akses) |
-| Staff | `staff@demo.com` | `password` | Karyawan (kasir saja) |
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Teknologi | Kegunaan |
-|-----------|----------|
-| **Laravel 13** | Framework PHP Backend |
-| **MySQL** | Database |
-| **Tailwind CSS** | Styling & Responsive Design |
-| **Alpine.js** | Interaktivitas Frontend |
-| **Vite** | Build Tool |
-| **Laravel Breeze** | Authentication Scaffolding |
+|---|---|
+| [Laravel 13](https://laravel.com) | Framework backend (PHP) |
+| MySQL | Database |
+| [Tailwind CSS](https://tailwindcss.com) | Styling & responsive design |
+| [Alpine.js](https://alpinejs.dev) | Interaktivitas frontend |
+| [Vite](https://vitejs.dev) | Build tool |
+| [Laravel Breeze](https://laravel.com/docs/starter-kits) | Scaffolding autentikasi |
 
----
-
-## 💻 Panduan Instalasi
+## Instalasi
 
 ### Prasyarat
+
 - PHP 8.3+
 - Composer
 - MySQL / MariaDB
 - Node.js & NPM
 
-### Langkah Instalasi
+### Langkah
 
 ```bash
 # Clone repositori
-git clone https://github.com/zusfan/pos-umkm.git
+git clone https://github.com/zusfan-ops/pos-umkm.git
 cd pos-umkm
 
-# Install dependencies PHP
+# Install dependencies
 composer install
-
-# Install dependencies JavaScript
 npm install
 
-# Copy environment
+# Konfigurasi environment
 cp .env.example .env
-
-# Generate app key
 php artisan key:generate
+```
 
-# Konfigurasi database di .env
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=pos_umkm
-# DB_USERNAME=root
-# DB_PASSWORD=
+Atur koneksi database pada file `.env`:
 
-# Jalankan migrasi & seeder
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pos_umkm
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+```bash
+# Migrasi database & seeder
 php artisan migrate:fresh --seed
 
 # Buat storage link
 php artisan storage:link
 
-# Build asset
+# Build asset frontend
 npm run build
 
 # Jalankan server
 php artisan serve
 ```
 
-Akses di browser: `http://127.0.0.1:8000`
+Buka aplikasi di `http://127.0.0.1:8000`.
 
----
+## Akun Demo
 
-## 📱 PWA (Progressive Web App)
+| Role | Email | Password | Akses |
+|---|---|---|---|
+| Owner | `owner@demo.com` | `password` | Pemilik usaha (akses penuh) |
+| Staff | `staff@demo.com` | `password` | Karyawan (kasir saja) |
 
-Aplikasi ini sudah didukung PWA. Cukup buka di browser HP, lalu pilih **"Install App"** atau **"Add to Home Screen"**.
+## PWA (Progressive Web App)
 
----
+Aplikasi ini mendukung PWA. Buka melalui browser HP, lalu pilih **"Install App"** atau **"Add to Home Screen"** untuk menggunakannya seperti aplikasi native.
 
-## 🤝 Ajak Developer Berkontribusi
+## Kontribusi
 
-**POS UMKM** dibangun dengan harapan bisa dikembangkan bersama oleh komunitas developer Indonesia. Kami sangat mengundang kontribusi dari:
+POS UMKM dikembangkan secara terbuka dan terbuka untuk kontribusi dari komunitas, khususnya:
 
 - Developer Laravel / PHP
-- Frontend Developer (Tailwind, Alpine.js, Vue)
+- Frontend Developer (Tailwind CSS, Alpine.js, Vue)
 - UI/UX Designer
 - QA & Tester
-- Pemilik UMKM yang punya masukan fitur
+- Pemilik UMKM dengan masukan fitur
 
-**Cara berkontribusi:**
+Langkah kontribusi:
+
 1. Fork repositori ini
 2. Buat branch fitur: `git checkout -b fitur-keren`
 3. Commit perubahan: `git commit -m 'Menambahkan fitur keren'`
 4. Push ke branch: `git push origin fitur-keren`
 5. Buat Pull Request
 
----
+## Lisensi
 
-## 👨‍💻 Developer
+Didistribusikan di bawah [MIT License](https://opensource.org/licenses/MIT). Bebas digunakan, dimodifikasi, dan didistribusikan.
+
+## Kontak
 
 **Zusfan Mashuri**
 
-| Kontak | Info |
-|--------|------|
-| 🌐 Website | [hallosemarang.com](https://hallosemarang.com) |
-| 🖥️ Portofolio | [zusfan.hallosemarang.com](https://zusfan.hallosemarang.com) |
-| 📧 Email | [zusfanmashuri@gmail.com](mailto:zusfanmashuri@gmail.com) |
-| 💬 WhatsApp | [08998813000](https://wa.me/628998813000) |
+| | |
+|---|---|
+| Website | [hallosemarang.com](https://hallosemarang.com) |
+| Portofolio | [zusfan.hallosemarang.com](https://zusfan.hallosemarang.com) |
+| Email | [zusfan.mashuri@gmail.com](mailto:zusfan.mashuri@gmail.com) |
 
 ---
 
-## 📄 Lisensi
-
-**MIT License** - Silakan gunakan, modifikasi, dan distribusikan secara bebas.
-
-Dibangun dengan ❤️ untuk UMKM Indonesia.
+Dibangun untuk UMKM Indonesia.
