@@ -34,7 +34,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+<body class="font-sans antialiased bg-gradient-to-br from-indigo-100 via-purple-50 to-rose-100/80">
     <div x-data="{ sidebarOpen: false, mobileNavOpen: false }" class="min-h-screen flex">
         @include('layouts.navigation')
 
